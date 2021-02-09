@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NoteAdaptor extends RecyclerView.Adapter<NoteAdaptor.NoteHolder> {
+public class NoteAdapter extends RecyclerView.Adapter<NoteAdapter.NoteHolder> {
     private List<Note> notes = new ArrayList<>();
 
     @NonNull
@@ -27,7 +27,6 @@ public class NoteAdaptor extends RecyclerView.Adapter<NoteAdaptor.NoteHolder> {
         holder.textViewDescription.setText(currentNote.getDescription());
         holder.textViewPriority.setText(String.valueOf(currentNote.getPriority()));
     }
-
     @Override
     public int getItemCount() {
         return notes.size();
@@ -42,13 +41,11 @@ public class NoteAdaptor extends RecyclerView.Adapter<NoteAdaptor.NoteHolder> {
         private TextView textViewTitle;
         private TextView textViewDescription;
         private TextView textViewPriority;
-
-
-        public NoteHolder(@NonNull View itemView) {
+        public NoteHolder(View itemView) {
             super(itemView);
-            textViewTitle=itemView.findViewById(R.id.text_view_title);
-            textViewDescription=itemView.findViewById(R.id.text_view_description);
-            textViewPriority=itemView.findViewById(R.id.text_view_priority);
+            textViewTitle = itemView.findViewById(R.id.text_view_title);
+            textViewDescription = itemView.findViewById(R.id.text_view_description);
+            textViewPriority = itemView.findViewById(R.id.text_view_priority);
         }
     }
 }

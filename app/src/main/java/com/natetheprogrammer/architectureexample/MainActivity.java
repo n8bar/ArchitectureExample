@@ -39,14 +39,14 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setHasFixedSize(true);
 
-        final NoteAdaptor adaptor = new NoteAdaptor();
-        recyclerView.setAdapter(adaptor);
+        final NoteAdapter adapter = new NoteAdapter();
+        recyclerView.setAdapter(adapter);
 
         noteViewModel = new ViewModelProvider(this, ViewModelProvider.AndroidViewModelFactory.getInstance(this.getApplication())).get(NoteViewModel.class);
         noteViewModel.getAllNotes().observe(this, new Observer<List<Note>>() {
             @Override
             public void onChanged(@Nullable List<Note> notes) {
-                adaptor.setNotes(notes);
+                adapter.setNotes(notes);
             }
         });
     }
